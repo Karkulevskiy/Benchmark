@@ -1,28 +1,28 @@
 import json
 import os
-import Benchmark
+from Benchmark import *
 
 CONFIG_NAME = "config.json"
 
 def benchmark(config_data):
     bench = Benchmark(config_data)
+    bench.tests()
 
 
 def checkConfig():
-    config_default = {"databases" : ["Postgress", "SQLite", "DuckDB", "Pandas", "SQLAlchemy"], "number_of_starts" : 10}
+    config_default = {"databases" : ["Postgress", "SQLite","Pandas","DuckDB","SQLAlchemy"], "number_of_starts" : 1, "path_to_file" : "C:\\Users\\vinog\\Downloads\\nyc_yellow_big.csv"}
 
     if (os.path.exists(CONFIG_NAME) == False):
         with open(CONFIG_NAME,"w+"):
             pass
 
-    with open("config.json","r") as file:
+    with open(CONFIG_NAME,"r") as file:
         template = file.readline()
-        if template:
-            benchmark(template)
-            return
+        if len(template) != 0:
+            benchmark(json.loads(template))
         else:
             file.close()
-            with open("config.json","w") as file:
+            with open(CONFIG_NAME,"w") as file:
                 json.dump(config_default,file)
                 benchmark(config_default)
 

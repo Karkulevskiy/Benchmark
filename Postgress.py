@@ -1,37 +1,37 @@
 import time
-from DataBase import *
-import psycopg2
+from DataBase import DataBase
 import statistics
+import pandas as pd
+from sqlalchemy import create_engine
+import psycopg2
 
-class Postgresql(DataBase):
-    def __init__(self, number_of_starts):
+class Postgress(DataBase):
+    def __init__(self):
+        super().__init__()
         self.connection = psycopg2.connect(dbname="postgres",
                                    host="127.0.0.1",
                                    user="postgres",
                                    password="230704",
                                    port="5432")
-        self.connection.autocommit = True
-        self.startTest()
-
+        engine = create_engine('postgresql+psycopg2://postgres:230704@localhost:5432/postgres')
+        db = engine.connect()
+        #df = pd.read_csv(DataBase.path_to_file)
+        #df.to_sql('postgres', con=db, if_exists='replace', index=False)
+        for df in pd.read_csv("C:\\Users\\vinog\\Downloads\\nyc_yellow_big.csv",sep='\t',iterator=True,chunksize=1000):
+            df.to_sql('postgres', con=db, if_exists='replace', index=False)
+        db.close()
     def startTest(self):
+        self.connection = psycopg2.connect(dbname="postgres",
+                                           host="127.0.0.1",
+                                           user="postgres",
+                                           password="230704",
+                                           port="5432")
+        self.connection.autocommit = True
         cursor = self.connection.cursor()
-        for i in range(len(self.QUERIES)):
-            static_data = []
-            for j in range(10):
-                start = time.time()
-                cursor.execute(self.QUERIES[i])
-                time_result = time.time() - start
-                static_data.append(time_result)
-            self.data.append(f"Query:{i + 1} ---> {str(statistics.median(static_data))}\n")
+
+        super().startTest(cursor)
+
         cursor.close()
         self.connection.close()
-        self.printTime()
 
-    def printTime(self):
-        print("Postgress: \n")
-        for i in range(len(self.data)):
-            print(self.data[i])
-        with open("results.txt", "a") as file:
-            file.write("Postgres:\n" + "".join(self.data))
-
-pg = Postgresql()
+        super().printTime("Postgress")
