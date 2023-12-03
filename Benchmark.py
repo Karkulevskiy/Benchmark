@@ -11,7 +11,10 @@ class Benchmark:
         self.databases = config["databases"]
         DataBase.number_of_starts = config["number_of_starts"]
         DataBase.path_to_file = config["path_to_file"]
-
+        Postgress.host_ = config["postgress_conf"]["host"]
+        Postgress.password_ = config["postgress_conf"]["password"]
+        Postgress.user_ = config["postgress_conf"]["user"]
+        Postgress.port_ = config["postgress_conf"]["port"]
     def tests(self):
         db_for_tests = []
         #Инстанциируем объекты классов, которые были заданы в конфиге

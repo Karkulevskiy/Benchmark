@@ -1,5 +1,6 @@
 import json
 import os
+import psycopg2
 from Benchmark import *
 
 CONFIG_NAME = "config.json"
@@ -10,7 +11,15 @@ def benchmark(config_data):
 
 
 def checkConfig():
-    config_default = {"databases" : ["Postgress", "SQLite","Pandas","DuckDB","SQLAlchemy"], "number_of_starts" : 1, "path_to_file" : "C:\\Users\\vinog\\Downloads\\nyc_yellow_big.csv"}
+    config_default = {"databases" : ["Postgress", "SQLite","Pandas","DuckDB","SQLAlchemy"],
+                      "number_of_starts" : 10,
+                      "path_to_file" : "C:\\Users\\vinog\\Downloads\\nyc_yellow_tiny.csv",
+                      "postgress_conf" : {
+                          "host" : "127.0.0.1",
+                          "user" : "postgres",
+                          "password" : "230704",
+                          "port" : "5432"
+                      }}
 
     if (os.path.exists(CONFIG_NAME) == False):
         with open(CONFIG_NAME,"w+"):

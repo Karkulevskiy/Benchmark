@@ -15,8 +15,8 @@ class Pandas(DataBase):
             for j in range(DataBase.number_of_starts):
                 if i == 0:
                     start = time.time()
-                    selected_df = df[['extra']]
-                    grouped_df = selected_df.groupby('extra')
+                    selected_df = df[['VendorID']]
+                    grouped_df = selected_df.groupby('VendorID')
                     final_df = grouped_df.size().reset_index(name='counts')
                     static_data.append(time.time() - start)
                 elif i == 1:
