@@ -52,5 +52,5 @@
 ------
 # Графики
 
-![alt text](https://github.com/Spacikl/Benchmark_temp/blob/master/Tiny%20Data%20Set.png)
-![alt text](https://github.com/Spacikl/Benchmark_temp/blob/master/BIG%20Data%20Set.png)
+![alt text](https://github.com/Spacikl/Benchmark/blob/master/charts/BIG%20Data%20Set.png)
+![alt text](https://github.com/Spacikl/Benchmark/blob/master/charts/Tiny%20Data%20Set.png)
