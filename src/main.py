@@ -36,5 +36,4 @@ def checkConfig():
             with open(CONFIG_NAME,"w") as file:
                 json.dump(config_default,file)
                 benchmark(config_default)
-
 checkConfig()
