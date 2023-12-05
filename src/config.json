@@ -1,1 +1,0 @@
-{"databases": ["Postgress", "SQLite", "Pandas", "DuckDB", "SQLAlchemy"], "number_of_starts": 1, "path_to_file_sqlite": "sqlite.db", "path_to_file_csv": "C:\\Users\\vinog\\Downloads\\nyc_yellow_tiny.csv", "create_postgres": false, "create_sqlite": false, "postgress_conf": {"host": "127.0.0.1", "user": "postgres", "password": "230704", "port": "5432"}}

@@ -1,18 +1,21 @@
 import os.path
-
 import pandas as pd
-from src.DataBase import *
+import time
+import statistics
 
-class Pandas(DataBase):
-    def __init__(self):
-        super().__init__()
 
-    def startTest(self):
-        if os.path.exists(DataBase.path_to_file_csv) == False:
-           print("File not exist")
-           return
+class Pandas:
+    def __init__(self, number_of_starts, path_to_file_csv):
+        self.data = []
+        self.number_of_starts = number_of_starts
+        self.path_to_file_csv = path_to_file_csv
 
-        df = pd.read_csv(DataBase.path_to_file_csv)
+    def start_test(self):
+        if not os.path.exists(self.path_to_file_csv):
+            print("File not exist")
+            return
+
+        df = pd.read_csv(self.path_to_file_csv)
         for i in range(4):
             static_data = []
             for j in range(1):
@@ -57,4 +60,11 @@ class Pandas(DataBase):
                         ascending=[True, False])
                     static_data.append(time.time() - start)
             self.data.append(f"Query:{i + 1} ---> {str(statistics.median(static_data))}\n")
-        super().printTime("Pandas")
+        self.print_time("Pandas")
+
+    def print_time(self, db_name):
+        print(f"{db_name}: \n")
+        for i in range(len(self.data)):
+            print(self.data[i])
+        with open("results.txt", "a") as file:
+            file.write(f"{db_name}:\n" + "".join(self.data))
