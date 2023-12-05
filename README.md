@@ -11,7 +11,6 @@
 - pandas
 - psycopg2
 - sqlalchemy
-- sqlite3
 
 Есть файл config.json, который отвечает за параметры запуска:
 - "databases" -> какие БД нужно тестировать
