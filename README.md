@@ -43,4 +43,5 @@
 ------
 # Графики
 
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goodhousekeeping.com%2Flife%2Fpets%2Fa43276342%2Fcat-instagram-captions%2F&psig=AOvVaw2zrSY9229_F5MjGcgCj-OQ&ust=1701847944748000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMizveLj94IDFQAAAAAdAAAAABAE)
+![alt text](https://github.com/Spacikl/Benchmark_temp/blob/master/Tiny%20Data%20Set.png)
+![alt text](https://github.com/Spacikl/Benchmark_temp/blob/master/BIG%20Data%20Set.png)
