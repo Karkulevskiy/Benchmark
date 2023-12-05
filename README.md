@@ -1,3 +1,23 @@
+# Привет!
+Это бенчмарк 5 библеотек: PostgresSQL, SQLite, DuckDB, Pandas, SQLAlchemy.
+Для запуска нужно установить следующие пакеты:
+- duckdb
+- pandas
+- psycopg2
+- sqlalchemy
+- sqlite3
+
+Есть файл config.json, который отвечает за параметры запуска:
+- "databases" -> какие БД нужно тестировать
+- "number_of_starts" -> количество запусков
+- "path_to_file_sqlite" -> абсолютный путь к sqlite.db файлу, если такой файл есть
+- "path_to_file_sqlite" -> путь к csv файлу с БД
+- "create_postgres" -> нужно ли создавать заново postgres БД
+- "create_sqlite" -> нужно ли создавать заново sqlite БД
+- "postgress_conf" -> параметры для подключения к postgress
+В процессе тестирования создастся файл results.txt с временем выполнения каждого запроса
+------
+
 # BENCHMARK
 ------------
 # PostgreSQL
