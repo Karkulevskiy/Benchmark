@@ -1,5 +1,11 @@
 # Привет!
-Это бенчмарк 5 библеотек: PostgresSQL, SQLite, DuckDB, Pandas, SQLAlchemy.
+Это бенчмарк 5 библиотек:
+- **PostgresSQL**
+- **SQLite**
+- **ВuckDB**
+- **Pandas**
+- **SQLAlchemy**
+  
 Для запуска нужно установить следующие пакеты:
 - duckdb
 - pandas
