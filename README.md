@@ -17,9 +17,9 @@
 - "databases" -> какие БД нужно тестировать
 - "number_of_starts" -> количество запусков
 - "path_to_file_sqlite" -> абсолютный путь к sqlite.db файлу, если такой файл есть
-- "path_to_file_sqlite" -> путь к csv файлу с БД
-- "create_postgres" -> нужно ли создавать заново postgres БД
-- "create_sqlite" -> нужно ли создавать заново sqlite БД
+- "path_to_file_csv" -> путь к csv файлу с БД
+- "create_db_postgres" -> нужно ли создавать заново postgres БД
+- "create_db_sqlite" -> нужно ли создавать заново sqlite БД
 - "postgress_conf" -> параметры для подключения к postgress
 В процессе тестирования создастся файл results.txt с временем выполнения каждого запроса
 ------
